@@ -1,11 +1,12 @@
 package com.developer.rodrigo.screenmatch.model;
 
-public class Serie extends Titulo{
+import com.developer.rodrigo.screenmatch.calculo.Classificavel;
+
+public class Serie extends Titulo implements Classificavel {
     private int temporadas;
     private boolean ativa;
     private int episodiosPorTemporada;
     private int minutosPorEpisodio;
-
 
     public int getTemporadas() {
         return temporadas;
@@ -42,5 +43,10 @@ public class Serie extends Titulo{
     @Override
     public int getDuracaoEmMinutos() {
         return minutosPorEpisodio * episodiosPorTemporada * temporadas;
+    }
+
+    @Override
+    public int getClassificacao() {
+        return (int) avaliacaoMedia() / 2;
     }
 }

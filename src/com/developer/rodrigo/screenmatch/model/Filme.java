@@ -1,6 +1,9 @@
 package com.developer.rodrigo.screenmatch.model;
 
-public class Filme extends Titulo {
+import com.developer.rodrigo.screenmatch.calculo.Classificavel;
+
+
+public class Filme extends Titulo implements Classificavel {
     private String diretor;
 
     public String getDiretor() {
@@ -9,5 +12,10 @@ public class Filme extends Titulo {
 
     public void setDiretor(String diretor) {
         this.diretor = diretor;
+    }
+
+    @Override
+    public int getClassificacao() {
+        return (int) avaliacaoMedia() / 2;
     }
 }
